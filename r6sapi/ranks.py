@@ -84,7 +84,7 @@ class Rank:
              "Bronze 4",   "Bronze 3",   "Bronze 2",   "Bronze 1",
              "Silver 4",   "Silver 3",   "Silver 2",   "Silver 1",
              "Gold 4",     "Gold 3",     "Gold 2",     "Gold 1",
-             "Platinum 3", "Platinum 2", "Platinum 1", "Diamond"]
+             "Platinum 3", "Platinum 2", "Platinum 1", "Diamond", "Champion"]
 
     RANK_CHARMS = [
         "https://ubistatic-a.akamaihd.net/0058/prod/assets/images/season02%20-%20copper%20charm.44c1ede2.png",
@@ -116,18 +116,20 @@ class Rank:
         "https://i.imgur.com/Sv3PQQE.jpg",  # plat 3
         "https://i.imgur.com/Uq3WhzZ.jpg",  # plat 2
         "https://i.imgur.com/xx03Pc5.jpg",  # plat 1
-        "https://i.imgur.com/nODE0QI.jpg"   # diamond
+        "https://i.imgur.com/nODE0QI.jpg",   # diamond
+        "https://i.imgur.com/Lk4wOrp.png"   # Champion
     ]
 
     @staticmethod
     def bracket_from_rank(rank_id):
-        if rank_id == 0: return 0
-        elif rank_id <= 4: return 1
-        elif rank_id <= 8: return 2
-        elif rank_id <= 12: return 3
-        elif rank_id <= 16: return 4
-        elif rank_id <= 19: return 5
-        else: return 6
+        if rank_id == 0: return 0 #unranked
+        elif rank_id <= 4: return 1 #copper
+        elif rank_id <= 8: return 2 #Bronze
+        elif rank_id <= 12: return 3 #Silver
+        elif rank_id <= 16: return 4 #Gold
+        elif rank_id <= 19: return 5 #Platinum
+        elif rank_id <= 20: return 6 #Diamond
+        else: return 7
 
     @staticmethod
     def bracket_name(bracket):
@@ -137,7 +139,8 @@ class Rank:
         elif bracket == 3: return "Silver"
         elif bracket == 4: return "Gold"
         elif bracket == 5: return "Platinum"
-        else: return "Diamond"
+        elif bracket == 6: return "Diamond
+        else: return "Champion"
 
 
     UNRANKED = 0
@@ -147,6 +150,7 @@ class Rank:
     GOLD = 4
     PLATINUM = 5
     DIAMOND = 6
+    CHAMPION = 7
 
     def __init__(self, data):
         self.max_mmr = data.get("max_mmr")
