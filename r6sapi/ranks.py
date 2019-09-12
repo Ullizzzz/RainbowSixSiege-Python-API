@@ -139,7 +139,7 @@ class Rank:
         elif bracket == 3: return "Silver"
         elif bracket == 4: return "Gold"
         elif bracket == 5: return "Platinum"
-        elif bracket == 6: return "Diamond
+        elif bracket == 6: return "Diamond"
         else: return "Champion"
 
 
